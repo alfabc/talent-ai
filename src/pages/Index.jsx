@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { ArrowRight, Search, FileText, BrainCircuit, Linkedin } from 'lucide-react';
+import { FreeTrialForm } from '@/components/FreeTrialForm';
 
 const Feature = ({ icon, title, description }) => (
   <Card className="w-full">
@@ -18,6 +19,11 @@ const Feature = ({ icon, title, description }) => (
 );
 
 const Index = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const openForm = () => setIsFormOpen(true);
+  const closeForm = () => setIsFormOpen(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <header className="container mx-auto px-4 py-8">
@@ -70,11 +76,13 @@ const Index = () => {
         <section className="text-center">
           <h3 className="text-3xl font-semibold mb-4">Ready to Transform Your Recruiting?</h3>
           <p className="text-xl text-gray-600 mb-8">Join thousands of recruiters who have streamlined their hiring process with Talent AI.</p>
-          <Button size="lg" className="text-lg">
+          <Button size="lg" className="text-lg" onClick={openForm}>
             Start Free Trial
           </Button>
         </section>
       </main>
+
+      <FreeTrialForm isOpen={isFormOpen} onClose={closeForm} />
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
