@@ -36,6 +36,14 @@ const Index = () => {
           </Button>
         </section>
 
+        <section className="mb-16">
+          <img 
+            src="https://talent24.ai/screening.png" 
+            alt="Talent AI Screening Process" 
+            className="w-full h-auto rounded-lg shadow-lg mx-auto object-cover"
+          />
+        </section>
+
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
