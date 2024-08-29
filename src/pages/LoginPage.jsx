@@ -27,12 +27,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center">
-      <Card className="w-full max-w-md">
-        <CardHeader>
+    <div className="min-h-screen bg-gradient-to-b from-blue-600 to-blue-400 flex items-center justify-center">
+      <Card className="w-full max-w-md bg-white shadow-lg">
+        <CardHeader className="bg-blue-500 text-white rounded-t-lg">
           <CardTitle className="text-2xl font-bold text-center">Login to Talent AI</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pt-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -40,11 +40,11 @@ const LoginPage = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-blue-600">Email</FormLabel>
                     <FormControl>
-                      <Input type="email" placeholder="Enter your email" {...field} />
+                      <Input type="email" placeholder="Enter your email" {...field} className="border-blue-300 focus:border-blue-500" />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500" />
                   </FormItem>
                 )}
               />
@@ -53,19 +53,19 @@ const LoginPage = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="text-blue-600">Password</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="Enter your password" {...field} />
+                      <Input type="password" placeholder="Enter your password" {...field} className="border-blue-300 focus:border-blue-500" />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-500" />
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full">Login</Button>
+              <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">Login</Button>
             </form>
           </Form>
           <div className="mt-4">
-            <Button variant="outline" className="w-full" onClick={() => console.log("Login with Google")}>
+            <Button variant="outline" className="w-full border-blue-500 text-blue-600 hover:bg-blue-50" onClick={() => console.log("Login with Google")}>
               Login with Google
             </Button>
           </div>
