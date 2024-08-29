@@ -88,8 +88,25 @@ const Index = () => {
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
-          <p>&copy; 2024 Talent AI. All rights reserved.</p>
-          <p>www.talent24.ai</p>
+          <p>
+            &copy; Alfa - {" "}
+            <a 
+              href="https://www.alfabc.io/privacy-policy" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Privacy Policy
+            </a> - {" "}
+            <a 
+              href="https://talent24.ai/terms-of-service.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Terms & Conditions
+            </a>
+          </p>
         </div>
       </footer>
     </div>
