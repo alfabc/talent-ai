@@ -39,8 +39,8 @@ const Index = () => {
         <section className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4">Revolutionize Your Recruiting Process</h2>
           <p className="text-xl text-gray-600 mb-8">Talent AI streamlines recruitment, saving you time and helping you find the best candidates.</p>
-          <Button size="lg" className="text-lg">
-            Get Started <ArrowRight className="ml-2 h-5 w-5" />
+          <Button size="lg" className="text-lg" onClick={() => window.location.href = '/login'}>
+            Login <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </section>
 
