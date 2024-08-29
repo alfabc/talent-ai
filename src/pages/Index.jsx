@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { ArrowRight, Search, Users, Zap, BarChart } from 'lucide-react';
+import { ArrowRight, Search, FileText, BrainCircuit, Linkedin } from 'lucide-react';
 
 const Feature = ({ icon, title, description }) => (
   <Card className="w-full">
@@ -36,26 +36,26 @@ const Index = () => {
           </Button>
         </section>
 
-        <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <section className="grid md:grid-cols-2 gap-8 mb-16">
           <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
             title="Smart Candidate Matching"
             description="AI-powered algorithms match candidates to job requirements with high accuracy."
           />
           <Feature 
-            icon={<Users className="h-6 w-6 text-blue-500" />}
-            title="Collaborative Hiring"
-            description="Easily involve team members in the hiring process with built-in collaboration tools."
+            icon={<FileText className="h-6 w-6 text-blue-500" />}
+            title="AI-powered CV Parsing"
+            description="Automatically extract and analyze key information from resumes with advanced AI technology."
           />
           <Feature 
-            icon={<Zap className="h-6 w-6 text-blue-500" />}
-            title="Automated Screening"
-            description="Automate initial candidate screening to focus on the most promising applicants."
+            icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
+            title="AI-powered Quiz Generation"
+            description="Create tailored assessments for candidates with our intelligent quiz generation system."
           />
           <Feature 
-            icon={<BarChart className="h-6 w-6 text-blue-500" />}
-            title="Analytics Dashboard"
-            description="Gain insights into your hiring process with comprehensive analytics and reporting."
+            icon={<Linkedin className="h-6 w-6 text-blue-500" />}
+            title="LinkedIn Integration"
+            description="Seamlessly connect with LinkedIn to source and evaluate potential candidates."
           />
         </section>
 
