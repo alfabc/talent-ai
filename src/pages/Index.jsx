@@ -36,11 +36,11 @@ const Index = () => {
           </Button>
         </section>
 
-        <section className="mb-16">
+        <section className="mb-16 flex justify-center">
           <img 
             src="https://talent24.ai/screening.png" 
             alt="Talent AI Screening Process" 
-            className="w-full h-auto rounded-lg shadow-lg mx-auto object-cover"
+            className="w-3/5 h-auto rounded-lg shadow-lg mx-auto object-cover"
           />
         </section>
 
