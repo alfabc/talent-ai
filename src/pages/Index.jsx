@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { ArrowRight, Search, FileText, BrainCircuit, Linkedin } from 'lucide-react';
 import { FreeTrialForm } from '@/components/FreeTrialForm';
 import { SignupModal } from '@/components/SignupModal';
+import { LoginModal } from '@/components/LoginModal';
 
 const Feature = ({ icon, title, description }) => (
   <Card className="w-full">
@@ -22,20 +23,23 @@ const Feature = ({ icon, title, description }) => (
 const Index = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   const openForm = () => setIsFormOpen(true);
   const closeForm = () => setIsFormOpen(false);
   const openSignupModal = () => setIsSignupModalOpen(true);
   const closeSignupModal = () => setIsSignupModalOpen(false);
+  const openLoginModal = () => setIsLoginModalOpen(true);
+  const closeLoginModal = () => setIsLoginModalOpen(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <header className="container mx-auto px-4 py-8">
         <nav className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-blue-600">Talent AI</h1>
-          <a href="mailto:info@talent24.ai" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Contact Us
-          </a>
+          <Button variant="outline" onClick={openLoginModal}>
+            Login
+          </Button>
         </nav>
       </header>
 
@@ -83,14 +87,16 @@ const Index = () => {
         <section className="text-center">
           <h3 className="text-3xl font-semibold mb-4">Ready to Transform Your Recruiting?</h3>
           <p className="text-xl text-gray-600 mb-8">Join thousands of recruiters who have streamlined their hiring process with Talent AI.</p>
-          <Button size="lg" className="text-lg" onClick={openForm}>
-            Start Free Trial
+          <Button size="lg" className="text-lg" onClick={openSignupModal}>
+            Start now <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          <p className="text-sm text-gray-500 mt-2">No credit card required</p>
         </section>
       </main>
 
       <FreeTrialForm isOpen={isFormOpen} onClose={closeForm} />
       <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
