@@ -86,7 +86,7 @@ const Index = () => {
           <Feature 
             icon={<FileText className="h-6 w-6 text-blue-500" />}
             title="AI-powered CV Parsing"
-            description="Automatically extract and analyze key information from resumes with advanced AI technology. "
+            description="Automatically extract and analyze key information from resumes with advanced AI technology. Watch a short video how it works"
             action={{
               text: "Watch a short video how it works",
               onClick: openVideoModal
@@ -95,12 +95,12 @@ const Index = () => {
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
             title="AI-powered Quiz Generation"
-            description="Create tailored assessments for candidates with our intelligent quiz generation system."
+            description="Create tailored assessments for candidates with our intelligent quiz generation system. And let Talent AI evaluate the answers - powered by AI"
           />
           <Feature 
             icon={<Linkedin className="h-6 w-6 text-blue-500" />}
             title="LinkedIn Integration"
-            description="Seamlessly connect with LinkedIn to source and evaluate potential candidates."
+            description="Seamlessly connect with LinkedIn to download all job applicants and their CVs from all your job offers."
           />
           <Feature 
             icon={<Code className="h-6 w-6 text-blue-500" />}
