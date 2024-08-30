@@ -22,12 +22,12 @@ export function SlideShowModal({ isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[700px] p-0">
-        <div className="relative">
+      <DialogContent className="sm:max-w-[700px] sm:max-h-[80vh] p-0">
+        <div className="relative h-full">
           <img
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
-            className="w-full h-auto"
+            className="w-full h-full object-contain"
           />
           <h3 className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-center">
             {slides[currentSlide].title}
