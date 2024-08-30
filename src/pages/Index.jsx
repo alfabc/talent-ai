@@ -5,8 +5,9 @@ import { ArrowRight, Search, FileText, BrainCircuit, Linkedin, Briefcase, Code }
 import { FreeTrialForm } from '@/components/FreeTrialForm';
 import { SignupModal } from '@/components/SignupModal';
 import { LoginModal } from '@/components/LoginModal';
+import { VideoModal } from '@/components/VideoModal';
 
-const Feature = ({ icon, title, description }) => (
+const Feature = ({ icon, title, description, action }) => (
   <Card className="w-full">
     <CardHeader>
       <CardTitle className="flex items-center gap-2">
@@ -16,6 +17,11 @@ const Feature = ({ icon, title, description }) => (
     </CardHeader>
     <CardContent>
       <CardDescription>{description}</CardDescription>
+      {action && (
+        <Button variant="link" className="mt-2 p-0" onClick={action.onClick}>
+          {action.text}
+        </Button>
+      )}
     </CardContent>
   </Card>
 );
@@ -24,6 +30,7 @@ const Index = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const openForm = () => setIsFormOpen(true);
   const closeForm = () => setIsFormOpen(false);
@@ -31,6 +38,8 @@ const Index = () => {
   const closeSignupModal = () => setIsSignupModalOpen(false);
   const openLoginModal = () => setIsLoginModalOpen(true);
   const closeLoginModal = () => setIsLoginModalOpen(false);
+  const openVideoModal = () => setIsVideoModalOpen(true);
+  const closeVideoModal = () => setIsVideoModalOpen(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -76,6 +85,10 @@ const Index = () => {
             icon={<FileText className="h-6 w-6 text-blue-500" />}
             title="AI-powered CV Parsing"
             description="Automatically extract and analyze key information from resumes with advanced AI technology."
+            action={{
+              text: "Watch a short video how it works",
+              onClick: openVideoModal
+            }}
           />
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
@@ -107,6 +120,7 @@ const Index = () => {
       <FreeTrialForm isOpen={isFormOpen} onClose={closeForm} />
       <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
       <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
+      <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
