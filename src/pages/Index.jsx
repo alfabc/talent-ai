@@ -7,6 +7,7 @@ import { SignupModal } from '@/components/SignupModal';
 import { LoginModal } from '@/components/LoginModal';
 import { VideoModal } from '@/components/VideoModal';
 import { SlideShowModal } from '@/components/SlideShowModal';
+import { QuizExampleModal } from '@/components/QuizExampleModal';
 
 const Feature = ({ icon, title, description, action }) => (
   <Card className="w-full">
@@ -35,6 +36,7 @@ const Index = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isSlideShowModalOpen, setIsSlideShowModalOpen] = useState(false);
+  const [isQuizExampleModalOpen, setIsQuizExampleModalOpen] = useState(false);
 
   const openForm = () => setIsFormOpen(true);
   const closeForm = () => setIsFormOpen(false);
@@ -46,6 +48,8 @@ const Index = () => {
   const closeVideoModal = () => setIsVideoModalOpen(false);
   const openSlideShowModal = () => setIsSlideShowModalOpen(true);
   const closeSlideShowModal = () => setIsSlideShowModalOpen(false);
+  const openQuizExampleModal = () => setIsQuizExampleModalOpen(true);
+  const closeQuizExampleModal = () => setIsQuizExampleModalOpen(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -106,7 +110,14 @@ const Index = () => {
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
             title="AI-powered Quiz Generation"
-            description="Create tailored assessments for candidates with our intelligent quiz generation system. And let Talent AI evaluate the answers - powered by AI"
+            description={
+              <>
+                Create tailored assessments for candidates with our intelligent quiz generation system. And let Talent AI evaluate the answers - powered by AI.
+                <Button variant="link" className="ml-1 p-0" onClick={openQuizExampleModal}>
+                  Example
+                </Button>
+              </>
+            }
           />
           <Feature 
             icon={<Linkedin className="h-6 w-6 text-blue-500" />}
@@ -135,6 +146,7 @@ const Index = () => {
       <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
       <SlideShowModal isOpen={isSlideShowModalOpen} onClose={closeSlideShowModal} />
+      <QuizExampleModal isOpen={isQuizExampleModalOpen} onClose={closeQuizExampleModal} />
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
