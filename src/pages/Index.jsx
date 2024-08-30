@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { ArrowRight, Search, FileText, BrainCircuit, Linkedin } from 'lucide-react';
+import { ArrowRight, Search, FileText, BrainCircuit, Linkedin, Briefcase, Code } from 'lucide-react';
 import { FreeTrialForm } from '@/components/FreeTrialForm';
 import { SignupModal } from '@/components/SignupModal';
 import { LoginModal } from '@/components/LoginModal';
@@ -63,6 +63,11 @@ const Index = () => {
 
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           <Feature 
+            icon={<Briefcase className="h-6 w-6 text-blue-500" />}
+            title="Free Applicant Tracking System"
+            description="Publish your job offers and manage applicants completely free - forever."
+          />
+          <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
             title="Smart Candidate Matching"
             description="AI-powered algorithms match candidates to job requirements with high accuracy."
@@ -81,6 +86,11 @@ const Index = () => {
             icon={<Linkedin className="h-6 w-6 text-blue-500" />}
             title="LinkedIn Integration"
             description="Seamlessly connect with LinkedIn to source and evaluate potential candidates."
+          />
+          <Feature 
+            icon={<Code className="h-6 w-6 text-blue-500" />}
+            title="Integrate with your ATS"
+            description="Talent AI features can be accessed via an API so you can integrate it easily with your ATS."
           />
         </section>
 
