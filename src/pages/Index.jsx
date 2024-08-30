@@ -87,10 +87,8 @@ const Index = () => {
             title="AI-powered Candidate Evaluation and Matching"
             description={
               <>
-                <p className="mb-2">
-                  Talent AI evaluates resumes without bias and finds the perfect match for your job offer. Our powerful AI has been specifically trained and understands the meaning and semantic of both resumes and job offers.
-                </p>
-                <Button variant="link" className="p-0" onClick={openSlideShowModal}>
+                Talent AI evaluates resumes without bias and finds the perfect match for your job offer. Our powerful AI has been specifically trained and understands the meaning and semantic of both resumes and job offers.
+                <Button variant="link" className="ml-1 p-0" onClick={openSlideShowModal}>
                   See examples
                 </Button>
               </>
