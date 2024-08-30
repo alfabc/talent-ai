@@ -6,6 +6,7 @@ import { FreeTrialForm } from '@/components/FreeTrialForm';
 import { SignupModal } from '@/components/SignupModal';
 import { LoginModal } from '@/components/LoginModal';
 import { VideoModal } from '@/components/VideoModal';
+import { SlideShowModal } from '@/components/SlideShowModal';
 
 const Feature = ({ icon, title, description, action }) => (
   <Card className="w-full">
@@ -33,6 +34,7 @@ const Index = () => {
   const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isSlideShowModalOpen, setIsSlideShowModalOpen] = useState(false);
 
   const openForm = () => setIsFormOpen(true);
   const closeForm = () => setIsFormOpen(false);
@@ -42,6 +44,8 @@ const Index = () => {
   const closeLoginModal = () => setIsLoginModalOpen(false);
   const openVideoModal = () => setIsVideoModalOpen(true);
   const closeVideoModal = () => setIsVideoModalOpen(false);
+  const openSlideShowModal = () => setIsSlideShowModalOpen(true);
+  const closeSlideShowModal = () => setIsSlideShowModalOpen(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -81,7 +85,14 @@ const Index = () => {
           <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
             title="AI-powered Candidate Evaluation and Matching"
-            description="Talent AI evaluates resumes without bias and finds the perfect match for your job offer. Our powerful AI has been specifically trained and understands the meaning and semantic of both resumes and job offers."
+            description={
+              <>
+                Talent AI evaluates resumes without bias and finds the perfect match for your job offer. Our powerful AI has been specifically trained and understands the meaning and semantic of both resumes and job offers.
+                <Button variant="link" className="ml-1 p-0" onClick={openSlideShowModal}>
+                  See examples
+                </Button>
+              </>
+            }
           />
           <Feature 
             icon={<FileText className="h-6 w-6 text-blue-500" />}
@@ -123,6 +134,7 @@ const Index = () => {
       <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
       <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
+      <SlideShowModal isOpen={isSlideShowModalOpen} onClose={closeSlideShowModal} />
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
