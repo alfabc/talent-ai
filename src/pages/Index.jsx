@@ -16,12 +16,14 @@ const Feature = ({ icon, title, description, action }) => (
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <CardDescription>{description}</CardDescription>
-      {action && (
-        <Button variant="link" className="mt-2 p-0" onClick={action.onClick}>
-          {action.text}
-        </Button>
-      )}
+      <CardDescription>
+        {description}
+        {action && (
+          <Button variant="link" className="ml-1 p-0" onClick={action.onClick}>
+            {action.text}
+          </Button>
+        )}
+      </CardDescription>
     </CardContent>
   </Card>
 );
@@ -84,7 +86,7 @@ const Index = () => {
           <Feature 
             icon={<FileText className="h-6 w-6 text-blue-500" />}
             title="AI-powered CV Parsing"
-            description="Automatically extract and analyze key information from resumes with advanced AI technology."
+            description="Automatically extract and analyze key information from resumes with advanced AI technology. "
             action={{
               text: "Watch a short video how it works",
               onClick: openVideoModal
@@ -102,7 +104,7 @@ const Index = () => {
           />
           <Feature 
             icon={<Code className="h-6 w-6 text-blue-500" />}
-            title="Integrate with your ATS"
+            title="Integrate Talent AI with your ATS"
             description="Talent AI features can be accessed via an API so you can integrate it easily with your ATS."
           />
         </section>
