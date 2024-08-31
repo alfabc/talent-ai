@@ -6,16 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { translations } from '../translations';
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
   password: z.string().min(8, { message: "Password must be at least 8 characters" }),
 });
 
-export function LoginModal({ isOpen, onClose, language }) {
-  const t = translations[language].loginModal;
-
+export function LoginModal({ isOpen, onClose }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,7 +31,7 @@ export function LoginModal({ isOpen, onClose, language }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{t.title}</DialogTitle>
+          <DialogTitle>Login to Talent AI</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -43,9 +40,9 @@ export function LoginModal({ isOpen, onClose, language }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.email}</FormLabel>
+                  <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder={`${t.email}...`} {...field} />
+                    <Input type="email" placeholder="Enter your email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -56,20 +53,20 @@ export function LoginModal({ isOpen, onClose, language }) {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.password}</FormLabel>
+                  <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder={`${t.password}...`} {...field} />
+                    <Input type="password" placeholder="Enter your password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">{t.loginButton}</Button>
+            <Button type="submit" className="w-full">Login</Button>
           </form>
         </Form>
         <div className="mt-4">
           <Button variant="outline" className="w-full" onClick={() => console.log("Login with Google")}>
-            {t.googleLogin}
+            Login with Google
           </Button>
         </div>
       </DialogContent>

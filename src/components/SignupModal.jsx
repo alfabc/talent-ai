@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { translations } from '../translations';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -19,9 +18,7 @@ const formSchema = z.object({
   path: ["repeatPassword"],
 });
 
-export function SignupModal({ isOpen, onClose, language }) {
-  const t = translations[language].signupModal;
-
+export function SignupModal({ isOpen, onClose }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,7 +40,7 @@ export function SignupModal({ isOpen, onClose, language }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{t.title}</DialogTitle>
+          <DialogTitle>Create your account at Talent AI for free</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -52,9 +49,9 @@ export function SignupModal({ isOpen, onClose, language }) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.name}</FormLabel>
+                  <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder={`${t.name}...`} {...field} />
+                    <Input placeholder="John Doe" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -65,9 +62,9 @@ export function SignupModal({ isOpen, onClose, language }) {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.company}</FormLabel>
+                  <FormLabel>Company</FormLabel>
                   <FormControl>
-                    <Input placeholder={`${t.company}...`} {...field} />
+                    <Input placeholder="Acme Inc." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -78,9 +75,9 @@ export function SignupModal({ isOpen, onClose, language }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.email}</FormLabel>
+                  <FormLabel>Email Address</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder={`${t.email}...`} {...field} />
+                    <Input type="email" placeholder="john@company.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -91,7 +88,7 @@ export function SignupModal({ isOpen, onClose, language }) {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.password}</FormLabel>
+                  <FormLabel>Password</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
@@ -104,7 +101,7 @@ export function SignupModal({ isOpen, onClose, language }) {
               name="repeatPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.repeatPassword}</FormLabel>
+                  <FormLabel>Repeat Password</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
@@ -112,7 +109,7 @@ export function SignupModal({ isOpen, onClose, language }) {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">{t.createAccount}</Button>
+            <Button type="submit" className="w-full">Create Account</Button>
           </form>
         </Form>
       </DialogContent>

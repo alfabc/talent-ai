@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { translations } from '../translations';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { ArrowRight, Search, FileText, BrainCircuit, Linkedin, Briefcase, Code } from 'lucide-react';
@@ -38,11 +37,61 @@ const Feature = ({ icon, title, description, action }) => (
   </Card>
 );
 
-// Translations are now imported from '../translations'
+const translations = {
+  en: {
+    login: 'Login',
+    title: 'Revolutionize Your Recruiting Process',
+    subtitle: 'Talent AI streamlines recruitment, saving you time and helping you find the best candidates.',
+    startNow: 'Start now',
+    noCreditCard: 'No credit card required',
+    features: {
+      ats: {
+        title: 'Free Applicant Tracking System',
+        description: 'Publish your job offers and manage candidates with Talent AI completely free, no credit card required.'
+      },
+      cvParsing: {
+        title: 'AI-powered CV Parsing',
+        description: 'Automatically extract and analyze key information from resumes with advanced AI technology.',
+        action: 'Watch a short video how it works'
+      },
+      evaluation: {
+        title: 'AI-powered Candidate Evaluation and Matching',
+        description: 'Talent AI evaluates resumes without bias and finds the perfect match for your job offer. Our powerful AI has been specifically trained and understands the meaning and semantic of both resumes and job offers.',
+        action: 'See examples'
+      },
+      quiz: {
+        title: 'AI-powered Quiz Generation',
+        description: 'Create tailored assessments for candidates with our intelligent quiz generation system. And let Talent AI evaluate the answers - powered by AI.',
+        action: 'Example'
+      },
+      linkedin: {
+        title: 'LinkedIn Integration',
+        description: 'Seamlessly connect with LinkedIn to download all job applicants and their CVs from all your job offers.'
+      },
+      integration: {
+        title: 'Integrate Talent AI with your ATS',
+        description: 'Talent AI features can be accessed via an API so you can integrate it easily with your ATS.'
+      }
+    },
+    cta: {
+      title: 'Ready to Transform Your Recruiting?',
+      subtitle: 'Join thousands of recruiters who have streamlined their hiring process with Talent AI.'
+    },
+    footer: {
+      privacyPolicy: 'Privacy Policy',
+      terms: 'Terms & Conditions'
+    }
+  },
+  es: {
+    login: 'Iniciar sesión',
+    title: 'Revoluciona tu proceso de reclutamiento',
+    subtitle: 'Talent AI agiliza el reclutamiento, ahorrándote tiempo y ayudándote a encontrar los mejores candidatos.',
+    startNow: 'Empieza ahora',
+    noCreditCard: 'No se requiere tarjeta de crédito',
     features: {
       ats: {
         title: 'Sistema de seguimiento de candidatos gratuito',
-        description: 'Publica tus ofertas de trabajo y gestiona candidatos con Talent AI completamente gratis, sin necesidad de tarjeta de crédito.',
+        description: 'Publica tus ofertas de trabajo y gestiona candidatos con Talent AI completamente gratis, sin necesidad de tarjeta de crédito.'
       },
       cvParsing: {
         title: 'Análisis de CV con IA',
@@ -75,22 +124,6 @@ const Feature = ({ icon, title, description, action }) => (
     footer: {
       privacyPolicy: 'Política de privacidad',
       terms: 'Términos y condiciones'
-    },
-    loginModal: {
-      title: 'Iniciar sesión en Talent AI',
-      email: 'Correo electrónico',
-      password: 'Contraseña',
-      loginButton: 'Iniciar sesión',
-      googleLogin: 'Iniciar sesión con Google'
-    },
-    signupModal: {
-      title: 'Crea tu cuenta en Talent AI gratis',
-      name: 'Nombre',
-      company: 'Empresa',
-      email: 'Correo electrónico',
-      password: 'Contraseña',
-      repeatPassword: 'Repetir contraseña',
-      createAccount: 'Crear cuenta'
     }
   },
   de: {
@@ -135,22 +168,6 @@ const Feature = ({ icon, title, description, action }) => (
     footer: {
       privacyPolicy: 'Datenschutzrichtlinie',
       terms: 'Allgemeine Geschäftsbedingungen'
-    },
-    loginModal: {
-      title: 'Bei Talent AI anmelden',
-      email: 'E-Mail',
-      password: 'Passwort',
-      loginButton: 'Anmelden',
-      googleLogin: 'Mit Google anmelden'
-    },
-    signupModal: {
-      title: 'Erstellen Sie Ihr kostenloses Konto bei Talent AI',
-      name: 'Name',
-      company: 'Unternehmen',
-      email: 'E-Mail-Adresse',
-      password: 'Passwort',
-      repeatPassword: 'Passwort wiederholen',
-      createAccount: 'Konto erstellen'
     }
   }
 };
@@ -186,15 +203,15 @@ const Index = () => {
           <h1 className="text-2xl font-bold text-blue-600">Talent AI</h1>
           <div className="flex items-center space-x-4">
             <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="w-[100px]">
+              <SelectTrigger className="w-[60px]">
                 <SelectValue>
-                  {language === 'en' ? 'English' : language === 'es' ? 'Español' : 'Deutsch'}
+                  {language === 'en' ? '🇬🇧' : language === 'es' ? '🇪🇸' : '🇩🇪'}
                 </SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="es">Español</SelectItem>
-                <SelectItem value="de">Deutsch</SelectItem>
+                <SelectItem value="en">🇬🇧</SelectItem>
+                <SelectItem value="es">🇪🇸</SelectItem>
+                <SelectItem value="de">🇩🇪</SelectItem>
               </SelectContent>
             </Select>
             <Button variant="outline" onClick={openLoginModal}>
@@ -284,8 +301,8 @@ const Index = () => {
       </main>
 
       <FreeTrialForm isOpen={isFormOpen} onClose={closeForm} />
-      <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} language={language} />
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} language={language} />
+      <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
       <SlideShowModal isOpen={isSlideShowModalOpen} onClose={closeSlideShowModal} />
       <QuizExampleModal isOpen={isQuizExampleModalOpen} onClose={closeQuizExampleModal} />
