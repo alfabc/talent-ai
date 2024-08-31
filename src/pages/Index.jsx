@@ -42,7 +42,7 @@ const Feature = ({ icon, title, description, action }) => (
     features: {
       ats: {
         title: 'Sistema de seguimiento de candidatos gratuito',
-        description: 'Publica tus ofertas de trabajo y gestiona candidatos con Talent AI completamente gratis, sin necesidad de tarjeta de crédito.'
+        description: 'Publica tus ofertas de trabajo y gestiona candidatos con Talent AI completamente gratis, sin necesidad de tarjeta de crédito.',
       },
       cvParsing: {
         title: 'Análisis de CV con IA',
