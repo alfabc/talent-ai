@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  { image: '/strengths-weaknesses.png', title: 'Strengths Weaknesses' },
-  { image: '/ai-evaluation.png', title: 'AI Evaluation' },
-  { image: '/evaluation-summary.png', title: 'Evaluation Summary' },
+  { image: 'https://talent24.ai/match_evaluation_detail.png', title: 'Match Evaluation Detail' },
+  { image: 'https://talent24.ai/match_evaluation_overview.png', title: 'Match Evaluation Overview' },
+  { image: 'https://talent24.ai/resume_evaluation.png', title: 'Resume Evaluation' },
 ];
 
 export function SlideShowModal({ isOpen, onClose }) {

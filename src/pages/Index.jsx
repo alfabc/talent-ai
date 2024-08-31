@@ -87,6 +87,15 @@ const Index = () => {
             description="Publish your job offers and manage candidates with Talent AI completely free, no credit card required."
           />
           <Feature 
+            icon={<FileText className="h-6 w-6 text-blue-500" />}
+            title="AI-powered CV Parsing"
+            description="Automatically extract and analyze key information from resumes with advanced AI technology."
+            action={{
+              text: "Watch a short video how it works",
+              onClick: openVideoModal
+            }}
+          />
+          <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
             title="AI-powered Candidate Evaluation and Matching"
             description={
@@ -97,15 +106,6 @@ const Index = () => {
                 </Button>
               </>
             }
-          />
-          <Feature 
-            icon={<FileText className="h-6 w-6 text-blue-500" />}
-            title="AI-powered CV Parsing"
-            description="Automatically extract and analyze key information from resumes with advanced AI technology."
-            action={{
-              text: "Watch a short video how it works",
-              onClick: openVideoModal
-            }}
           />
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
