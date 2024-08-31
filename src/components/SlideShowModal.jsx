@@ -24,7 +24,7 @@ export function SlideShowModal({ isOpen, onClose }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[700px] p-0">
         <div className="relative flex flex-col">
-          <div className="relative">
+          <div className="relative group">
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].title}
@@ -33,7 +33,7 @@ export function SlideShowModal({ isOpen, onClose }) {
             <Button
               variant="outline"
               size="icon"
-              className="absolute top-1/2 left-2 transform -translate-y-1/2"
+              className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-100 transition-opacity duration-300"
               onClick={prevSlide}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -41,7 +41,7 @@ export function SlideShowModal({ isOpen, onClose }) {
             <Button
               variant="outline"
               size="icon"
-              className="absolute top-1/2 right-2 transform -translate-y-1/2"
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-100 transition-opacity duration-300"
               onClick={nextSlide}
             >
               <ChevronRight className="h-4 w-4" />
