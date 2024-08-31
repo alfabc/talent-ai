@@ -80,6 +80,22 @@ const translations = {
     footer: {
       privacyPolicy: 'Privacy Policy',
       terms: 'Terms & Conditions'
+    },
+    loginModal: {
+      title: 'Login to Talent AI',
+      email: 'Email',
+      password: 'Password',
+      loginButton: 'Login',
+      googleLogin: 'Login with Google'
+    },
+    signupModal: {
+      title: 'Create your account at Talent AI for free',
+      name: 'Name',
+      company: 'Company',
+      email: 'Email Address',
+      password: 'Password',
+      repeatPassword: 'Repeat Password',
+      createAccount: 'Create Account'
     }
   },
   es: {
@@ -124,6 +140,22 @@ const translations = {
     footer: {
       privacyPolicy: 'Política de privacidad',
       terms: 'Términos y condiciones'
+    },
+    loginModal: {
+      title: 'Iniciar sesión en Talent AI',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      loginButton: 'Iniciar sesión',
+      googleLogin: 'Iniciar sesión con Google'
+    },
+    signupModal: {
+      title: 'Crea tu cuenta en Talent AI gratis',
+      name: 'Nombre',
+      company: 'Empresa',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      repeatPassword: 'Repetir contraseña',
+      createAccount: 'Crear cuenta'
     }
   },
   de: {
@@ -168,6 +200,22 @@ const translations = {
     footer: {
       privacyPolicy: 'Datenschutzrichtlinie',
       terms: 'Allgemeine Geschäftsbedingungen'
+    },
+    loginModal: {
+      title: 'Bei Talent AI anmelden',
+      email: 'E-Mail',
+      password: 'Passwort',
+      loginButton: 'Anmelden',
+      googleLogin: 'Mit Google anmelden'
+    },
+    signupModal: {
+      title: 'Erstellen Sie Ihr kostenloses Konto bei Talent AI',
+      name: 'Name',
+      company: 'Unternehmen',
+      email: 'E-Mail-Adresse',
+      password: 'Passwort',
+      repeatPassword: 'Passwort wiederholen',
+      createAccount: 'Konto erstellen'
     }
   }
 };
@@ -203,15 +251,15 @@ const Index = () => {
           <h1 className="text-2xl font-bold text-blue-600">Talent AI</h1>
           <div className="flex items-center space-x-4">
             <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="w-[60px]">
+              <SelectTrigger className="w-[100px]">
                 <SelectValue>
-                  {language === 'en' ? '🇬🇧' : language === 'es' ? '🇪🇸' : '🇩🇪'}
+                  {language === 'en' ? 'English' : language === 'es' ? 'Español' : 'Deutsch'}
                 </SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">🇬🇧</SelectItem>
-                <SelectItem value="es">🇪🇸</SelectItem>
-                <SelectItem value="de">🇩🇪</SelectItem>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Español</SelectItem>
+                <SelectItem value="de">Deutsch</SelectItem>
               </SelectContent>
             </Select>
             <Button variant="outline" onClick={openLoginModal}>
@@ -301,8 +349,8 @@ const Index = () => {
       </main>
 
       <FreeTrialForm isOpen={isFormOpen} onClose={closeForm} />
-      <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
+      <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} language={language} />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} language={language} />
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
       <SlideShowModal isOpen={isSlideShowModalOpen} onClose={closeSlideShowModal} />
       <QuizExampleModal isOpen={isQuizExampleModalOpen} onClose={closeQuizExampleModal} />

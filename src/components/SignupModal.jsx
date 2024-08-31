@@ -18,7 +18,9 @@ const formSchema = z.object({
   path: ["repeatPassword"],
 });
 
-export function SignupModal({ isOpen, onClose }) {
+export function SignupModal({ isOpen, onClose, language }) {
+  const t = translations[language].signupModal;
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -40,7 +42,7 @@ export function SignupModal({ isOpen, onClose }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Create your account at Talent AI for free</DialogTitle>
+          <DialogTitle>{t.title}</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -49,9 +51,9 @@ export function SignupModal({ isOpen, onClose }) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>{t.name}</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input placeholder={`${t.name}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -62,9 +64,9 @@ export function SignupModal({ isOpen, onClose }) {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company</FormLabel>
+                  <FormLabel>{t.company}</FormLabel>
                   <FormControl>
-                    <Input placeholder="Acme Inc." {...field} />
+                    <Input placeholder={`${t.company}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -75,9 +77,9 @@ export function SignupModal({ isOpen, onClose }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email Address</FormLabel>
+                  <FormLabel>{t.email}</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="john@company.com" {...field} />
+                    <Input type="email" placeholder={`${t.email}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -88,7 +90,7 @@ export function SignupModal({ isOpen, onClose }) {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{t.password}</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
@@ -101,7 +103,7 @@ export function SignupModal({ isOpen, onClose }) {
               name="repeatPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Repeat Password</FormLabel>
+                  <FormLabel>{t.repeatPassword}</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
@@ -109,7 +111,7 @@ export function SignupModal({ isOpen, onClose }) {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">Create Account</Button>
+            <Button type="submit" className="w-full">{t.createAccount}</Button>
           </form>
         </Form>
       </DialogContent>
