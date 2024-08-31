@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { ArrowRight, Search, FileText, BrainCircuit, Linkedin, Briefcase, Code } from 'lucide-react';
@@ -227,7 +227,18 @@ const Index = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isSlideShowModalOpen, setIsSlideShowModalOpen] = useState(false);
   const [isQuizExampleModalOpen, setIsQuizExampleModalOpen] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const detectBrowserLanguage = () => {
+    const browserLang = navigator.language || navigator.userLanguage;
+    if (browserLang.startsWith('de')) return 'de';
+    if (browserLang.startsWith('es')) return 'es';
+    return 'en';
+  };
+
+  const [language, setLanguage] = useState(detectBrowserLanguage());
+
+  useEffect(() => {
+    setLanguage(detectBrowserLanguage());
+  }, []);
 
   const t = translations[language];
 
