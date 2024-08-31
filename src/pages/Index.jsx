@@ -8,6 +8,13 @@ import { LoginModal } from '@/components/LoginModal';
 import { VideoModal } from '@/components/VideoModal';
 import { SlideShowModal } from '@/components/SlideShowModal';
 import { QuizExampleModal } from '@/components/QuizExampleModal';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 const Feature = ({ icon, title, description, action }) => (
   <Card className="w-full">
@@ -37,6 +44,7 @@ const Index = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isSlideShowModalOpen, setIsSlideShowModalOpen] = useState(false);
   const [isQuizExampleModalOpen, setIsQuizExampleModalOpen] = useState(false);
+  const [language, setLanguage] = useState('en');
 
   const openForm = () => setIsFormOpen(true);
   const closeForm = () => setIsFormOpen(false);
@@ -56,20 +64,46 @@ const Index = () => {
       <header className="container mx-auto px-4 py-8">
         <nav className="flex justify-between items-center">
           <h1 className="text-2xl font-bold text-blue-600">Talent AI</h1>
-          <Button variant="outline" onClick={openLoginModal}>
-            Login
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Select value={language} onValueChange={setLanguage}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select language" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="es">Español</SelectItem>
+                <SelectItem value="de">Deutsch</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button variant="outline" onClick={openLoginModal}>
+              {language === 'en' ? 'Login' : language === 'es' ? 'Iniciar sesión' : 'Anmelden'}
+            </Button>
+          </div>
         </nav>
       </header>
 
       <main className="container mx-auto px-4 py-16">
         <section className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4">Revolutionize Your Recruiting Process</h2>
-          <p className="text-xl text-gray-600 mb-8">Talent AI streamlines recruitment, saving you time and helping you find the best candidates.</p>
+          <h2 className="text-5xl font-bold mb-4">
+            {language === 'en' ? 'Revolutionize Your Recruiting Process' :
+             language === 'es' ? 'Revoluciona tu proceso de reclutamiento' :
+             'Revolutionieren Sie Ihren Rekrutierungsprozess'}
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            {language === 'en' ? 'Talent AI streamlines recruitment, saving you time and helping you find the best candidates.' :
+             language === 'es' ? 'Talent AI agiliza el reclutamiento, ahorrándote tiempo y ayudándote a encontrar los mejores candidatos.' :
+             'Talent AI optimiert die Rekrutierung, spart Ihnen Zeit und hilft Ihnen, die besten Kandidaten zu finden.'}
+          </p>
           <Button size="lg" className="text-lg" onClick={openSignupModal}>
-            Start now <ArrowRight className="ml-2 h-5 w-5" />
+            {language === 'en' ? 'Start now' :
+             language === 'es' ? 'Empieza ahora' :
+             'Jetzt starten'} <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <p className="text-sm text-gray-500 mt-2">No credit card required</p>
+          <p className="text-sm text-gray-500 mt-2">
+            {language === 'en' ? 'No credit card required' :
+             language === 'es' ? 'No se requiere tarjeta de crédito' :
+             'Keine Kreditkarte erforderlich'}
+          </p>
         </section>
 
         <section className="mb-16 flex justify-center">
