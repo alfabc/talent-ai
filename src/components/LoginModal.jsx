@@ -12,7 +12,7 @@ const formSchema = z.object({
   password: z.string().min(8, { message: "Password must be at least 8 characters" }),
 });
 
-export function LoginModal({ isOpen, onClose }) {
+export function LoginModal({ isOpen, onClose, t }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,7 +31,7 @@ export function LoginModal({ isOpen, onClose }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Login to Talent AI</DialogTitle>
+          <DialogTitle>{t.loginModal.title}</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -40,9 +40,9 @@ export function LoginModal({ isOpen, onClose }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t.loginModal.email}</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="Enter your email" {...field} />
+                    <Input type="email" placeholder={`${t.loginModal.email}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -53,20 +53,20 @@ export function LoginModal({ isOpen, onClose }) {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{t.loginModal.password}</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder="Enter your password" {...field} />
+                    <Input type="password" placeholder={`${t.loginModal.password}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">Login</Button>
+            <Button type="submit" className="w-full">{t.loginModal.loginButton}</Button>
           </form>
         </Form>
         <div className="mt-4">
           <Button variant="outline" className="w-full" onClick={() => console.log("Login with Google")}>
-            Login with Google
+            {t.loginModal.googleLogin}
           </Button>
         </div>
       </DialogContent>

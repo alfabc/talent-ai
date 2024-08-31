@@ -80,6 +80,22 @@ const translations = {
     footer: {
       privacyPolicy: 'Privacy Policy',
       terms: 'Terms & Conditions'
+    },
+    loginModal: {
+      title: 'Login to Talent AI',
+      email: 'Email',
+      password: 'Password',
+      loginButton: 'Login',
+      googleLogin: 'Login with Google'
+    },
+    signupModal: {
+      title: 'Create your account at Talent AI for free',
+      name: 'Name',
+      company: 'Company',
+      email: 'Email Address',
+      password: 'Password',
+      repeatPassword: 'Repeat Password',
+      createAccount: 'Create Account'
     }
   },
   es: {
@@ -124,6 +140,22 @@ const translations = {
     footer: {
       privacyPolicy: 'Política de privacidad',
       terms: 'Términos y condiciones'
+    },
+    loginModal: {
+      title: 'Iniciar sesión en Talent AI',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      loginButton: 'Iniciar sesión',
+      googleLogin: 'Iniciar sesión con Google'
+    },
+    signupModal: {
+      title: 'Crea tu cuenta en Talent AI gratis',
+      name: 'Nombre',
+      company: 'Empresa',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      repeatPassword: 'Repetir contraseña',
+      createAccount: 'Crear cuenta'
     }
   },
   de: {
@@ -168,6 +200,22 @@ const translations = {
     footer: {
       privacyPolicy: 'Datenschutzrichtlinie',
       terms: 'Allgemeine Geschäftsbedingungen'
+    },
+    loginModal: {
+      title: 'Bei Talent AI anmelden',
+      email: 'E-Mail',
+      password: 'Passwort',
+      loginButton: 'Anmelden',
+      googleLogin: 'Mit Google anmelden'
+    },
+    signupModal: {
+      title: 'Erstellen Sie Ihr kostenloses Konto bei Talent AI',
+      name: 'Name',
+      company: 'Unternehmen',
+      email: 'E-Mail-Adresse',
+      password: 'Passwort',
+      repeatPassword: 'Passwort wiederholen',
+      createAccount: 'Konto erstellen'
     }
   }
 };
@@ -301,8 +349,8 @@ const Index = () => {
       </main>
 
       <FreeTrialForm isOpen={isFormOpen} onClose={closeForm} />
-      <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} />
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
+      <SignupModal isOpen={isSignupModalOpen} onClose={closeSignupModal} t={t} />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} t={t} />
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
       <SlideShowModal isOpen={isSlideShowModalOpen} onClose={closeSlideShowModal} />
       <QuizExampleModal isOpen={isQuizExampleModalOpen} onClose={closeQuizExampleModal} />
