@@ -8,7 +8,7 @@ export const translations = {
     features: {
       ats: {
         title: 'Free Applicant Tracking System',
-        description: 'Publish your job offers and manage candidates with Talent AI completely free, no credit card required.'
+        description: 'Publish your job offers and manage candidates with Talent AI completely free, no credit card required'
       },
       cvParsing: {
         title: 'AI-powered CV Parsing',
