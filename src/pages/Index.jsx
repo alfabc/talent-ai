@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { translations } from '../translations';
 
 const Feature = ({ icon, title, description, action }) => (
   <Card className="w-full">
