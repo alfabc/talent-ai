@@ -16,6 +16,9 @@ const formSchema = z.object({
   repeatPassword: z.string(),
   acceptTerms: z.boolean().refine(val => val === true, {
     message: "You must accept the terms and conditions"
+  }),
+  acceptPrivacy: z.boolean().refine(val => val === true, {
+    message: "You must accept the privacy policy"
   })
 }).refine((data) => data.password === data.repeatPassword, {
   message: "Passwords don't match",
@@ -32,6 +35,7 @@ export function SignupModal({ isOpen, onClose, t }) {
       password: "",
       repeatPassword: "",
       acceptTerms: false,
+      acceptPrivacy: false,
     },
   });
 
@@ -128,12 +132,31 @@ export function SignupModal({ isOpen, onClose, t }) {
                   <div className="space-y-1 leading-none">
                     <FormLabel>
                       {t.signupModal.acceptTerms}{' '}
-                      <a href="https://www.alfabcn.ai/es/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                        {t.signupModal.privacyPolicy}
-                      </a>{' '}
-                      {t.signupModal.and}{' '}
                       <a href="https://talent24.ai/terms-of-service.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                         {t.signupModal.termsConditions}
+                      </a>
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="acceptPrivacy"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>
+                      {t.signupModal.acceptPrivacy}{' '}
+                      <a href="https://www.alfabcn.ai/es/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        {t.signupModal.privacyPolicy}
                       </a>
                     </FormLabel>
                     <FormMessage />
