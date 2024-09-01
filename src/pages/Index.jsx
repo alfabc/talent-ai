@@ -121,9 +121,69 @@ const translations = {
   },
   es: {
     // ... (same structure as 'en', but with Spanish translations)
+    features: {
+      ats: {
+        title: 'Sistema de seguimiento de candidatos gratuito',
+        description: 'Publique sus ofertas de trabajo y gestione candidatos con Talent AI completamente gratis, sin necesidad de tarjeta de crédito.'
+      },
+      cvParsing: {
+        title: 'Análisis de CV con IA',
+        description: 'Extraiga y analice automáticamente información clave de los currículums con tecnología de IA avanzada.',
+        action: 'Ver un video corto de cómo funciona'
+      },
+      evaluation: {
+        title: 'Evaluación y emparejamiento de candidatos con IA',
+        description: 'Talent AI evalúa los currículums sin sesgos y encuentra la combinación perfecta para su oferta de trabajo. Nuestra poderosa IA ha sido entrenada específicamente y comprende el significado y la semántica tanto de los currículums como de las ofertas de trabajo.',
+        action: 'Ver ejemplos'
+      },
+      quiz: {
+        title: 'Generación de cuestionarios con IA',
+        description: 'Cree evaluaciones personalizadas para los candidatos con nuestro sistema inteligente de generación de cuestionarios. Y deje que Talent AI evalúe las respuestas, impulsado por IA.',
+        action: 'Ejemplo'
+      },
+      linkedin: {
+        title: 'Integración con LinkedIn',
+        description: 'Conéctese sin problemas con LinkedIn para descargar todos los solicitantes de empleo y sus CV de todas sus ofertas de trabajo.'
+      },
+      integration: {
+        title: 'Integre Talent AI con su ATS',
+        description: 'Las características de Talent AI se pueden acceder a través de una API para que pueda integrarlo fácilmente con su ATS.'
+      }
+    },
+    // ... (rest of the Spanish translations)
   },
   de: {
     // ... (same structure as 'en', but with German translations)
+    features: {
+      ats: {
+        title: 'Kostenloses Bewerbermanagementsystem',
+        description: 'Veröffentlichen Sie Ihre Stellenangebote und verwalten Sie Kandidaten mit Talent AI völlig kostenlos, keine Kreditkarte erforderlich.'
+      },
+      cvParsing: {
+        title: 'KI-gestütztes Lebenslauf-Parsing',
+        description: 'Extrahieren und analysieren Sie automatisch wichtige Informationen aus Lebensläufen mit fortschrittlicher KI-Technologie.',
+        action: 'Sehen Sie ein kurzes Video, wie es funktioniert'
+      },
+      evaluation: {
+        title: 'KI-gestützte Kandidatenbewertung und -matching',
+        description: 'Talent AI bewertet Lebensläufe unvoreingenommen und findet die perfekte Übereinstimmung für Ihr Stellenangebot. Unsere leistungsstarke KI wurde speziell trainiert und versteht die Bedeutung und Semantik sowohl von Lebensläufen als auch von Stellenangeboten.',
+        action: 'Beispiele ansehen'
+      },
+      quiz: {
+        title: 'KI-gestützte Quiz-Erstellung',
+        description: 'Erstellen Sie maßgeschneiderte Bewertungen für Kandidaten mit unserem intelligenten Quiz-Erstellungssystem. Und lassen Sie Talent AI die Antworten auswerten - angetrieben von KI.',
+        action: 'Beispiel'
+      },
+      linkedin: {
+        title: 'LinkedIn-Integration',
+        description: 'Verbinden Sie sich nahtlos mit LinkedIn, um alle Bewerber und ihre Lebensläufe von all Ihren Stellenangeboten herunterzuladen.'
+      },
+      integration: {
+        title: 'Integrieren Sie Talent AI in Ihr ATS',
+        description: 'Auf die Funktionen von Talent AI kann über eine API zugegriffen werden, sodass Sie es einfach in Ihr ATS integrieren können.'
+      }
+    },
+    // ... (rest of the German translations)
   }
 };
 
