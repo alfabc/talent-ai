@@ -207,7 +207,7 @@ const Index = () => {
     setLanguage(detectBrowserLanguage());
   }, []);
 
-  const t = translations[language];
+  const t = translations[language] || translations.en;
 
   const openForm = () => setIsFormOpen(true);
   const closeForm = () => setIsFormOpen(false);
@@ -268,63 +268,63 @@ const Index = () => {
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
-            title={t.features.evaluation.title}
+            title={t.features?.evaluation?.title || 'Evaluation'}
             description={
               <>
-                {t.features.evaluation.description}
+                {t.features?.evaluation?.description || 'Description not available'}
                 <Button variant="link" className="ml-1 p-0" onClick={openSlideShowModal}>
-                  {t.features.evaluation.action}
+                  {t.features?.evaluation?.action || 'See examples'}
                 </Button>
               </>
             }
           />
           <Feature 
             icon={<FileText className="h-6 w-6 text-blue-500" />}
-            title={t.features.cvParsing.title}
-            description={t.features.cvParsing.description}
+            title={t.features?.cvParsing?.title || 'CV Parsing'}
+            description={t.features?.cvParsing?.description || 'Description not available'}
             action={{
-              text: t.features.cvParsing.action,
+              text: t.features?.cvParsing?.action || 'Watch video',
               onClick: openVideoModal
             }}
           />
           <Feature 
             icon={<Briefcase className="h-6 w-6 text-blue-500" />}
-            title={t.features.ats.title}
-            description={t.features.ats.description}
+            title={t.features?.ats?.title || 'ATS'}
+            description={t.features?.ats?.description || 'Description not available'}
           />
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
-            title={t.features.quiz.title}
+            title={t.features?.quiz?.title || 'Quiz'}
             description={
               <>
-                {t.features.quiz.description}
+                {t.features?.quiz?.description || 'Description not available'}
                 <Button variant="link" className="ml-1 p-0" onClick={openQuizExampleModal}>
-                  {t.features.quiz.action}
+                  {t.features?.quiz?.action || 'Example'}
                 </Button>
               </>
             }
           />
           <Feature 
             icon={<Linkedin className="h-6 w-6 text-blue-500" />}
-            title={t.features.linkedin.title}
-            description={t.features.linkedin.description}
+            title={t.features?.linkedin?.title || 'LinkedIn'}
+            description={t.features?.linkedin?.description || 'Description not available'}
           />
           <Feature 
             icon={<Code className="h-6 w-6 text-blue-500" />}
-            title={t.features.integration.title}
-            description={t.features.integration.description}
+            title={t.features?.integration?.title || 'Integration'}
+            description={t.features?.integration?.description || 'Description not available'}
           />
         </section>
 
         <PricingSection t={t} />
 
         <section className="text-center">
-          <h3 className="text-3xl font-semibold mb-4">{t.cta.title}</h3>
-          <p className="text-xl text-gray-600 mb-8">{t.cta.subtitle}</p>
+          <h3 className="text-3xl font-semibold mb-4">{t.cta?.title || 'Ready to Transform Your Recruiting?'}</h3>
+          <p className="text-xl text-gray-600 mb-8">{t.cta?.subtitle || 'Join thousands of recruiters who have streamlined their hiring process with Talent AI.'}</p>
           <Button size="lg" className="text-lg" onClick={openSignupModal}>
-            {t.startNow} <ArrowRight className="ml-2 h-5 w-5" />
+            {t.startNow || 'Start now'} <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <p className="text-sm text-gray-500 mt-2">{t.noCreditCard}</p>
+          <p className="text-sm text-gray-500 mt-2">{t.noCreditCard || 'No credit card required'}</p>
         </section>
       </main>
 
@@ -353,7 +353,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
             >
-              {t.footer.privacyPolicy}
+              {t.footer?.privacyPolicy || 'Privacy Policy'}
             </a> - {" "}
             <a 
               href="https://talent24.ai/terms-of-service.pdf" 
@@ -361,7 +361,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
             >
-              {t.footer.terms}
+              {t.footer?.terms || 'Terms & Conditions'}
             </a>
           </p>
         </div>
