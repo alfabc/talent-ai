@@ -131,9 +131,9 @@ export function SignupModal({ isOpen, onClose, t }) {
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      {t.signupModal.acceptTerms}{' '}
+                      I accept the{' '}
                       <a href="https://talent24.ai/terms-of-service.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                        {t.signupModal.termsConditions}
+                        Terms & Conditions
                       </a>
                     </FormLabel>
                     <FormMessage />
@@ -154,9 +154,9 @@ export function SignupModal({ isOpen, onClose, t }) {
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel>
-                      {t.signupModal.acceptPrivacy}{' '}
+                      I accept the{' '}
                       <a href="https://www.alfabcn.ai/es/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                        {t.signupModal.privacyPolicy}
+                        Privacy Policy
                       </a>
                     </FormLabel>
                     <FormMessage />
