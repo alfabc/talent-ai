@@ -31,7 +31,7 @@ export function LoginModal({ isOpen, onClose, t }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{t.loginModal.title}</DialogTitle>
+          <DialogTitle>{t?.loginModal?.title || 'Login to Talent AI'}</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -40,9 +40,9 @@ export function LoginModal({ isOpen, onClose, t }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.loginModal.email}</FormLabel>
+                  <FormLabel>{t?.loginModal?.email || 'Email'}</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder={`${t.loginModal.email}...`} {...field} />
+                    <Input type="email" placeholder={`${t?.loginModal?.email || 'Email'}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -53,20 +53,20 @@ export function LoginModal({ isOpen, onClose, t }) {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.loginModal.password}</FormLabel>
+                  <FormLabel>{t?.loginModal?.password || 'Password'}</FormLabel>
                   <FormControl>
-                    <Input type="password" placeholder={`${t.loginModal.password}...`} {...field} />
+                    <Input type="password" placeholder={`${t?.loginModal?.password || 'Password'}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">{t.loginModal.loginButton}</Button>
+            <Button type="submit" className="w-full">{t?.loginModal?.loginButton || 'Login'}</Button>
           </form>
         </Form>
         <div className="mt-4">
           <Button variant="outline" className="w-full" onClick={() => console.log("Login with Google")}>
-            {t.loginModal.googleLogin}
+            {t?.loginModal?.googleLogin || 'Login with Google'}
           </Button>
         </div>
       </DialogContent>

@@ -49,7 +49,7 @@ export function SignupModal({ isOpen, onClose, t }) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{t.signupModal.title}</DialogTitle>
+          <DialogTitle>{t?.signupModal?.title || 'Create your account at Talent AI for free'}</DialogTitle>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -58,9 +58,9 @@ export function SignupModal({ isOpen, onClose, t }) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.signupModal.name}</FormLabel>
+                  <FormLabel>{t?.signupModal?.name || 'Name'}</FormLabel>
                   <FormControl>
-                    <Input placeholder={`${t.signupModal.name}...`} {...field} />
+                    <Input placeholder={`${t?.signupModal?.name || 'Name'}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -71,9 +71,9 @@ export function SignupModal({ isOpen, onClose, t }) {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.signupModal.company}</FormLabel>
+                  <FormLabel>{t?.signupModal?.company || 'Company'}</FormLabel>
                   <FormControl>
-                    <Input placeholder={`${t.signupModal.company}...`} {...field} />
+                    <Input placeholder={`${t?.signupModal?.company || 'Company'}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -84,9 +84,9 @@ export function SignupModal({ isOpen, onClose, t }) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.signupModal.email}</FormLabel>
+                  <FormLabel>{t?.signupModal?.email || 'Email Address'}</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder={`${t.signupModal.email}...`} {...field} />
+                    <Input type="email" placeholder={`${t?.signupModal?.email || 'Email Address'}...`} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -97,7 +97,7 @@ export function SignupModal({ isOpen, onClose, t }) {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.signupModal.password}</FormLabel>
+                  <FormLabel>{t?.signupModal?.password || 'Password'}</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
@@ -110,7 +110,7 @@ export function SignupModal({ isOpen, onClose, t }) {
               name="repeatPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t.signupModal.repeatPassword}</FormLabel>
+                  <FormLabel>{t?.signupModal?.repeatPassword || 'Repeat Password'}</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
@@ -164,7 +164,7 @@ export function SignupModal({ isOpen, onClose, t }) {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">{t.signupModal.createAccount}</Button>
+            <Button type="submit" className="w-full">{t?.signupModal?.createAccount || 'Create Account'}</Button>
           </form>
         </Form>
       </DialogContent>
