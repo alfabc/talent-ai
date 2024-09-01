@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { ArrowRight, Search, FileText, BrainCircuit, Linkedin, Briefcase, Code } from 'lucide-react';
 import { FreeTrialForm } from '@/components/FreeTrialForm';
 import { SignupModal } from '@/components/SignupModal';
@@ -25,220 +25,197 @@ const Feature = ({ icon, title, description, action }) => (
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <p>{description}</p>
-      {action && (
-        <Button variant="link" className="ml-1 p-0" onClick={action.onClick}>
-          {action.text}
-        </Button>
-      )}
+      <CardDescription>
+        {description}
+        {action && (
+          <Button variant="link" className="ml-1 p-0" onClick={action.onClick}>
+            {action.text}
+          </Button>
+        )}
+      </CardDescription>
     </CardContent>
   </Card>
 );
 
-const PricingSection = () => (
-  <section className="mb-16">
-    <h3 className="text-3xl font-semibold mb-6 text-center">Pricing</h3>
-    <div className="overflow-x-auto">
-      <table className="w-full border-collapse">
-        <thead>
-          <tr className="bg-blue-100">
-            <th className="border p-2 text-left">Feature</th>
-            <th className="border p-2 text-right">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="border p-2">Publishing unlimited jobs with unlimited candidates</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Your branded company page listing your jobs</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Managing of unlimited talents and jobs in Talent AI</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-          <tr>
-            <td className="border p-2">LinkedIn Connector to download jobs and candidates</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Integrate your ATS with Talent AI using our API</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Downloading PDF-Resumes of candidates</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-          <tr>
-            <td className="border p-2">AI-Parsing of a PDF-Resume</td>
-            <td className="border p-2 text-right">10 credits</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Downloading Resume in JSON-format (API-only)</td>
-            <td className="border p-2 text-right">5 credits</td>
-          </tr>
-          <tr>
-            <td className="border p-2">AI-Evaluation of a Resume of a Candidate</td>
-            <td className="border p-2 text-right">10 credits</td>
-          </tr>
-          <tr>
-            <td className="border p-2">AI-Evaluation of a Job-Application</td>
-            <td className="border p-2 text-right">30 credits</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Creation of an individualized candidate quiz with AI</td>
-            <td className="border p-2 text-right">2 credits/question</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Evaluation of an individualized candidate quiz with AI</td>
-            <td className="border p-2 text-right">8 credits/question</td>
-          </tr>
-          <tr>
-            <td className="border p-2">Branded quiz page for candidates</td>
-            <td className="border p-2 text-right">Free</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p className="mt-4 text-sm text-gray-600 text-center">
-      Pay per use of Talent AI - <a href="https://talent24.ai" className="text-blue-600 hover:underline">https://talent24.ai</a>
-    </p>
-  </section>
-);
-
 const translations = {
   en: {
-    login: "Login",
-    title: "AI-Powered Talent Acquisition",
-    subtitle: "Streamline your hiring process with advanced AI technology",
-    startNow: "Start Now",
-    noCreditCard: "No credit card required",
+    login: 'Login',
+    title: 'Revolutionize Your Recruiting Process',
+    subtitle: 'Talent AI streamlines recruitment, saving you time and helping you find the best candidates.',
+    startNow: 'Start now',
+    noCreditCard: 'No credit card required',
     features: {
-      evaluation: {
-        title: "AI-Powered Candidate Evaluation",
-        description: "Evaluate candidates quickly and accurately with our AI technology.",
-        action: "See how it works"
+      ats: {
+        title: 'Free Applicant Tracking System',
+        description: 'Publish your job offers and manage candidates with Talent AI completely free, no credit card required.'
       },
       cvParsing: {
-        title: "Intelligent CV Parsing",
-        description: "Extract key information from resumes automatically.",
-        action: "Watch demo"
+        title: 'AI-powered CV Parsing',
+        description: 'Automatically extract and analyze key information from resumes with advanced AI technology.',
+        action: 'Watch a short video how it works'
       },
-      ats: {
-        title: "Applicant Tracking System",
-        description: "Manage your entire recruitment process in one place."
+      evaluation: {
+        title: 'AI-powered Candidate Evaluation and Matching',
+        description: 'Talent AI evaluates resumes without bias and finds the perfect match for your job offer. Our powerful AI has been specifically trained and understands the meaning and semantic of both resumes and job offers.',
+        action: 'See examples'
       },
       quiz: {
-        title: "AI-Generated Quizzes",
-        description: "Create custom quizzes to assess candidate skills.",
-        action: "View example"
+        title: 'AI-powered Quiz Generation',
+        description: 'Create tailored assessments for candidates with our intelligent quiz generation system. And let Talent AI evaluate the answers - powered by AI.',
+        action: 'Example'
       },
       linkedin: {
-        title: "LinkedIn Integration",
-        description: "Seamlessly import candidates and job postings from LinkedIn."
+        title: 'LinkedIn Integration',
+        description: 'Seamlessly connect with LinkedIn to download all job applicants and their CVs from all your job offers.'
       },
       integration: {
-        title: "API Integration",
-        description: "Easily integrate with your existing HR systems."
+        title: 'Integrate Talent AI with your ATS',
+        description: 'Talent AI features can be accessed via an API so you can integrate it easily with your ATS.'
       }
     },
     cta: {
-      title: "Ready to Transform Your Recruiting?",
-      subtitle: "Join thousands of companies using Talent AI to hire smarter."
+      title: 'Ready to Transform Your Recruiting?',
+      subtitle: 'Join thousands of recruiters who have streamlined their hiring process with Talent AI.'
     },
     footer: {
-      privacyPolicy: "Privacy Policy",
-      terms: "Terms of Service"
+      privacyPolicy: 'Privacy Policy',
+      terms: 'Terms & Conditions'
+    },
+    loginModal: {
+      title: 'Login to Talent AI',
+      email: 'Email',
+      password: 'Password',
+      loginButton: 'Login',
+      googleLogin: 'Login with Google'
+    },
+    signupModal: {
+      title: 'Create your account at Talent AI for free',
+      name: 'Name',
+      company: 'Company',
+      email: 'Email Address',
+      password: 'Password',
+      repeatPassword: 'Repeat Password',
+      createAccount: 'Create Account'
     }
   },
   es: {
-    login: "Iniciar sesión",
-    title: "Adquisición de Talento Impulsada por IA",
-    subtitle: "Optimice su proceso de contratación con tecnología de IA avanzada",
-    startNow: "Comenzar ahora",
-    noCreditCard: "No se requiere tarjeta de crédito",
+    login: 'Iniciar sesión',
+    title: 'Revoluciona tu proceso de reclutamiento',
+    subtitle: 'Talent AI agiliza el reclutamiento, ahorrándote tiempo y ayudándote a encontrar los mejores candidatos.',
+    startNow: 'Empieza ahora',
+    noCreditCard: 'No se requiere tarjeta de crédito',
     features: {
-      evaluation: {
-        title: "Evaluación de Candidatos con IA",
-        description: "Evalúe candidatos de forma rápida y precisa con nuestra tecnología de IA.",
-        action: "Ver cómo funciona"
+      ats: {
+        title: 'Sistema de seguimiento de candidatos gratuito',
+        description: 'Publica tus ofertas de trabajo y gestiona candidatos con Talent AI completamente gratis, sin necesidad de tarjeta de crédito.'
       },
       cvParsing: {
-        title: "Análisis Inteligente de CV",
-        description: "Extraiga información clave de los currículos automáticamente.",
-        action: "Ver demostración"
+        title: 'Análisis de CV con IA',
+        description: 'Extrae y analiza automáticamente información clave de los currículos con tecnología de IA avanzada.',
+        action: 'Ver un video corto de cómo funciona'
       },
-      ats: {
-        title: "Sistema de Seguimiento de Candidatos",
-        description: "Gestione todo su proceso de reclutamiento en un solo lugar."
+      evaluation: {
+        title: 'Evaluación y emparejamiento de candidatos con IA',
+        description: 'Talent AI evalúa los currículos sin sesgos y encuentra la combinación perfecta para tu oferta de trabajo. Nuestra potente IA ha sido entrenada específicamente y entiende el significado y la semántica tanto de los currículos como de las ofertas de trabajo.',
+        action: 'Ver ejemplos'
       },
       quiz: {
-        title: "Cuestionarios Generados por IA",
-        description: "Cree cuestionarios personalizados para evaluar las habilidades de los candidatos.",
-        action: "Ver ejemplo"
+        title: 'Generación de cuestionarios con IA',
+        description: 'Crea evaluaciones personalizadas para los candidatos con nuestro sistema inteligente de generación de cuestionarios. Y deja que Talent AI evalúe las respuestas, impulsado por IA.',
+        action: 'Ejemplo'
       },
       linkedin: {
-        title: "Integración con LinkedIn",
-        description: "Importe sin problemas candidatos y ofertas de trabajo desde LinkedIn."
+        title: 'Integración con LinkedIn',
+        description: 'Conéctate sin problemas con LinkedIn para descargar todos los solicitantes de empleo y sus CV de todas tus ofertas de trabajo.'
       },
       integration: {
-        title: "Integración API",
-        description: "Integre fácilmente con sus sistemas de RRHH existentes."
+        title: 'Integra Talent AI con tu ATS',
+        description: 'Las funciones de Talent AI se pueden acceder a través de una API para que puedas integrarlo fácilmente con tu ATS.'
       }
     },
     cta: {
-      title: "¿Listo para Transformar su Reclutamiento?",
-      subtitle: "Únase a miles de empresas que usan Talent AI para contratar de manera más inteligente."
+      title: '¿Listo para transformar tu reclutamiento?',
+      subtitle: 'Únete a miles de reclutadores que han optimizado su proceso de contratación con Talent AI.'
     },
     footer: {
-      privacyPolicy: "Política de Privacidad",
-      terms: "Términos de Servicio"
+      privacyPolicy: 'Política de privacidad',
+      terms: 'Términos y condiciones'
+    },
+    loginModal: {
+      title: 'Iniciar sesión en Talent AI',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      loginButton: 'Iniciar sesión',
+      googleLogin: 'Iniciar sesión con Google'
+    },
+    signupModal: {
+      title: 'Crea tu cuenta en Talent AI gratis',
+      name: 'Nombre',
+      company: 'Empresa',
+      email: 'Correo electrónico',
+      password: 'Contraseña',
+      repeatPassword: 'Repetir contraseña',
+      createAccount: 'Crear cuenta'
     }
   },
   de: {
-    login: "Anmelden",
-    title: "KI-gestützte Talentakquise",
-    subtitle: "Optimieren Sie Ihren Einstellungsprozess mit fortschrittlicher KI-Technologie",
-    startNow: "Jetzt starten",
-    noCreditCard: "Keine Kreditkarte erforderlich",
+    login: 'Anmelden',
+    title: 'Revolutionieren Sie Ihren Rekrutierungsprozess',
+    subtitle: 'Talent AI optimiert die Rekrutierung, spart Ihnen Zeit und hilft Ihnen, die besten Kandidaten zu finden.',
+    startNow: 'Jetzt starten',
+    noCreditCard: 'Keine Kreditkarte erforderlich',
     features: {
-      evaluation: {
-        title: "KI-gestützte Kandidatenbewertung",
-        description: "Bewerten Sie Kandidaten schnell und genau mit unserer KI-Technologie.",
-        action: "Sehen Sie, wie es funktioniert"
+      ats: {
+        title: 'Kostenloses Bewerbermanagementsystem',
+        description: 'Veröffentlichen Sie Ihre Stellenangebote und verwalten Sie Kandidaten mit Talent AI völlig kostenlos, ohne Kreditkarte.'
       },
       cvParsing: {
-        title: "Intelligentes Lebenslauf-Parsing",
-        description: "Extrahieren Sie automatisch wichtige Informationen aus Lebensläufen.",
-        action: "Demo ansehen"
+        title: 'KI-gestütztes Lebenslauf-Parsing',
+        description: 'Extrahieren und analysieren Sie automatisch wichtige Informationen aus Lebensläufen mit fortschrittlicher KI-Technologie.',
+        action: 'Sehen Sie ein kurzes Video, wie es funktioniert'
       },
-      ats: {
-        title: "Bewerbermanagementsystem",
-        description: "Verwalten Sie Ihren gesamten Rekrutierungsprozess an einem Ort."
+      evaluation: {
+        title: 'KI-gestützte Kandidatenbewertung und -matching',
+        description: 'Talent AI bewertet Lebensläufe unvoreingenommen und findet die perfekte Übereinstimmung für Ihr Stellenangebot. Unsere leistungsstarke KI wurde speziell trainiert und versteht die Bedeutung und Semantik sowohl von Lebensläufen als auch von Stellenangeboten.',
+        action: 'Beispiele ansehen'
       },
       quiz: {
-        title: "KI-generierte Quizze",
-        description: "Erstellen Sie benutzerdefinierte Quizze zur Bewertung der Fähigkeiten von Kandidaten.",
-        action: "Beispiel anzeigen"
+        title: 'KI-gestützte Quiz-Generierung',
+        description: 'Erstellen Sie maßgeschneiderte Bewertungen für Kandidaten mit unserem intelligenten Quiz-Generierungssystem. Und lassen Sie Talent AI die Antworten auswerten - angetrieben von KI.',
+        action: 'Beispiel'
       },
       linkedin: {
-        title: "LinkedIn-Integration",
-        description: "Importieren Sie nahtlos Kandidaten und Stellenausschreibungen von LinkedIn."
+        title: 'LinkedIn-Integration',
+        description: 'Verbinden Sie sich nahtlos mit LinkedIn, um alle Bewerber und ihre Lebensläufe von all Ihren Stellenangeboten herunterzuladen.'
       },
       integration: {
-        title: "API-Integration",
-        description: "Einfache Integration in Ihre bestehenden HR-Systeme."
+        title: 'Integrieren Sie Talent AI in Ihr ATS',
+        description: 'Auf die Funktionen von Talent AI kann über eine API zugegriffen werden, sodass Sie es einfach in Ihr ATS integrieren können.'
       }
     },
     cta: {
-      title: "Bereit, Ihre Rekrutierung zu transformieren?",
-      subtitle: "Schließen Sie sich Tausenden von Unternehmen an, die Talent AI für intelligentere Einstellungen nutzen."
+      title: 'Bereit, Ihre Rekrutierung zu transformieren?',
+      subtitle: 'Schließen Sie sich Tausenden von Recruitern an, die ihren Einstellungsprozess mit Talent AI optimiert haben.'
     },
     footer: {
-      privacyPolicy: "Datenschutzrichtlinie",
-      terms: "Nutzungsbedingungen"
+      privacyPolicy: 'Datenschutzrichtlinie',
+      terms: 'Allgemeine Geschäftsbedingungen'
+    },
+    loginModal: {
+      title: 'Bei Talent AI anmelden',
+      email: 'E-Mail',
+      password: 'Passwort',
+      loginButton: 'Anmelden',
+      googleLogin: 'Mit Google anmelden'
+    },
+    signupModal: {
+      title: 'Erstellen Sie Ihr kostenloses Konto bei Talent AI',
+      name: 'Name',
+      company: 'Unternehmen',
+      email: 'E-Mail-Adresse',
+      password: 'Passwort',
+      repeatPassword: 'Passwort wiederholen',
+      createAccount: 'Konto erstellen'
     }
   }
 };
@@ -325,11 +302,14 @@ const Index = () => {
           <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
             title={t.features.evaluation.title}
-            description={t.features.evaluation.description}
-            action={{
-              text: t.features.evaluation.action,
-              onClick: openSlideShowModal
-            }}
+            description={
+              <>
+                {t.features.evaluation.description}
+                <Button variant="link" className="ml-1 p-0" onClick={openSlideShowModal}>
+                  {t.features.evaluation.action}
+                </Button>
+              </>
+            }
           />
           <Feature 
             icon={<FileText className="h-6 w-6 text-blue-500" />}
@@ -348,11 +328,14 @@ const Index = () => {
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
             title={t.features.quiz.title}
-            description={t.features.quiz.description}
-            action={{
-              text: t.features.quiz.action,
-              onClick: openQuizExampleModal
-            }}
+            description={
+              <>
+                {t.features.quiz.description}
+                <Button variant="link" className="ml-1 p-0" onClick={openQuizExampleModal}>
+                  {t.features.quiz.action}
+                </Button>
+              </>
+            }
           />
           <Feature 
             icon={<Linkedin className="h-6 w-6 text-blue-500" />}
@@ -365,8 +348,6 @@ const Index = () => {
             description={t.features.integration.description}
           />
         </section>
-
-        <PricingSection />
 
         <section className="text-center">
           <h3 className="text-3xl font-semibold mb-4">{t.cta.title}</h3>
