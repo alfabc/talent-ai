@@ -25,14 +25,12 @@ const Feature = ({ icon, title, description, action }) => (
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <CardDescription>
-        {description}
-        {action && (
-          <Button variant="link" className="ml-1 p-0" onClick={action.onClick}>
-            {action.text}
-          </Button>
-        )}
-      </CardDescription>
+      <p>{description}</p>
+      {action && (
+        <Button variant="link" className="ml-1 p-0" onClick={action.onClick}>
+          {action.text}
+        </Button>
+      )}
     </CardContent>
   </Card>
 );
@@ -111,7 +109,138 @@ const PricingSection = () => (
 );
 
 const translations = {
-  // ... (keep existing translations)
+  en: {
+    login: "Login",
+    title: "AI-Powered Talent Acquisition",
+    subtitle: "Streamline your hiring process with advanced AI technology",
+    startNow: "Start Now",
+    noCreditCard: "No credit card required",
+    features: {
+      evaluation: {
+        title: "AI-Powered Candidate Evaluation",
+        description: "Evaluate candidates quickly and accurately with our AI technology.",
+        action: "See how it works"
+      },
+      cvParsing: {
+        title: "Intelligent CV Parsing",
+        description: "Extract key information from resumes automatically.",
+        action: "Watch demo"
+      },
+      ats: {
+        title: "Applicant Tracking System",
+        description: "Manage your entire recruitment process in one place."
+      },
+      quiz: {
+        title: "AI-Generated Quizzes",
+        description: "Create custom quizzes to assess candidate skills.",
+        action: "View example"
+      },
+      linkedin: {
+        title: "LinkedIn Integration",
+        description: "Seamlessly import candidates and job postings from LinkedIn."
+      },
+      integration: {
+        title: "API Integration",
+        description: "Easily integrate with your existing HR systems."
+      }
+    },
+    cta: {
+      title: "Ready to Transform Your Recruiting?",
+      subtitle: "Join thousands of companies using Talent AI to hire smarter."
+    },
+    footer: {
+      privacyPolicy: "Privacy Policy",
+      terms: "Terms of Service"
+    }
+  },
+  es: {
+    login: "Iniciar sesión",
+    title: "Adquisición de Talento Impulsada por IA",
+    subtitle: "Optimice su proceso de contratación con tecnología de IA avanzada",
+    startNow: "Comenzar ahora",
+    noCreditCard: "No se requiere tarjeta de crédito",
+    features: {
+      evaluation: {
+        title: "Evaluación de Candidatos con IA",
+        description: "Evalúe candidatos de forma rápida y precisa con nuestra tecnología de IA.",
+        action: "Ver cómo funciona"
+      },
+      cvParsing: {
+        title: "Análisis Inteligente de CV",
+        description: "Extraiga información clave de los currículos automáticamente.",
+        action: "Ver demostración"
+      },
+      ats: {
+        title: "Sistema de Seguimiento de Candidatos",
+        description: "Gestione todo su proceso de reclutamiento en un solo lugar."
+      },
+      quiz: {
+        title: "Cuestionarios Generados por IA",
+        description: "Cree cuestionarios personalizados para evaluar las habilidades de los candidatos.",
+        action: "Ver ejemplo"
+      },
+      linkedin: {
+        title: "Integración con LinkedIn",
+        description: "Importe sin problemas candidatos y ofertas de trabajo desde LinkedIn."
+      },
+      integration: {
+        title: "Integración API",
+        description: "Integre fácilmente con sus sistemas de RRHH existentes."
+      }
+    },
+    cta: {
+      title: "¿Listo para Transformar su Reclutamiento?",
+      subtitle: "Únase a miles de empresas que usan Talent AI para contratar de manera más inteligente."
+    },
+    footer: {
+      privacyPolicy: "Política de Privacidad",
+      terms: "Términos de Servicio"
+    }
+  },
+  de: {
+    login: "Anmelden",
+    title: "KI-gestützte Talentakquise",
+    subtitle: "Optimieren Sie Ihren Einstellungsprozess mit fortschrittlicher KI-Technologie",
+    startNow: "Jetzt starten",
+    noCreditCard: "Keine Kreditkarte erforderlich",
+    features: {
+      evaluation: {
+        title: "KI-gestützte Kandidatenbewertung",
+        description: "Bewerten Sie Kandidaten schnell und genau mit unserer KI-Technologie.",
+        action: "Sehen Sie, wie es funktioniert"
+      },
+      cvParsing: {
+        title: "Intelligentes Lebenslauf-Parsing",
+        description: "Extrahieren Sie automatisch wichtige Informationen aus Lebensläufen.",
+        action: "Demo ansehen"
+      },
+      ats: {
+        title: "Bewerbermanagementsystem",
+        description: "Verwalten Sie Ihren gesamten Rekrutierungsprozess an einem Ort."
+      },
+      quiz: {
+        title: "KI-generierte Quizze",
+        description: "Erstellen Sie benutzerdefinierte Quizze zur Bewertung der Fähigkeiten von Kandidaten.",
+        action: "Beispiel anzeigen"
+      },
+      linkedin: {
+        title: "LinkedIn-Integration",
+        description: "Importieren Sie nahtlos Kandidaten und Stellenausschreibungen von LinkedIn."
+      },
+      integration: {
+        title: "API-Integration",
+        description: "Einfache Integration in Ihre bestehenden HR-Systeme."
+      }
+    },
+    cta: {
+      title: "Bereit, Ihre Rekrutierung zu transformieren?",
+      subtitle: "Schließen Sie sich Tausenden von Unternehmen an, die Talent AI für intelligentere Einstellungen nutzen."
+    },
+    footer: {
+      privacyPolicy: "Datenschutzrichtlinie",
+      terms: "Nutzungsbedingungen"
+    }
+  }
 };
 
 const Index = () => {
@@ -196,14 +325,11 @@ const Index = () => {
           <Feature 
             icon={<Search className="h-6 w-6 text-blue-500" />}
             title={t.features.evaluation.title}
-            description={
-              <>
-                {t.features.evaluation.description}
-                <Button variant="link" className="ml-1 p-0" onClick={openSlideShowModal}>
-                  {t.features.evaluation.action}
-                </Button>
-              </>
-            }
+            description={t.features.evaluation.description}
+            action={{
+              text: t.features.evaluation.action,
+              onClick: openSlideShowModal
+            }}
           />
           <Feature 
             icon={<FileText className="h-6 w-6 text-blue-500" />}
@@ -222,14 +348,11 @@ const Index = () => {
           <Feature 
             icon={<BrainCircuit className="h-6 w-6 text-blue-500" />}
             title={t.features.quiz.title}
-            description={
-              <>
-                {t.features.quiz.description}
-                <Button variant="link" className="ml-1 p-0" onClick={openQuizExampleModal}>
-                  {t.features.quiz.action}
-                </Button>
-              </>
-            }
+            description={t.features.quiz.description}
+            action={{
+              text: t.features.quiz.action,
+              onClick: openQuizExampleModal
+            }}
           />
           <Feature 
             icon={<Linkedin className="h-6 w-6 text-blue-500" />}
