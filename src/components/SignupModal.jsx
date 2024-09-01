@@ -6,13 +6,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   company: z.string().min(2, { message: "Company name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
   password: z.string().min(8, { message: "Password must be at least 8 characters." }),
-  repeatPassword: z.string()
+  repeatPassword: z.string(),
+  acceptTerms: z.boolean().refine(val => val === true, {
+    message: "You must accept the terms and conditions"
+  })
 }).refine((data) => data.password === data.repeatPassword, {
   message: "Passwords don't match",
   path: ["repeatPassword"],
@@ -27,6 +31,7 @@ export function SignupModal({ isOpen, onClose, t }) {
       email: "",
       password: "",
       repeatPassword: "",
+      acceptTerms: false,
     },
   });
 
@@ -106,6 +111,33 @@ export function SignupModal({ isOpen, onClose, t }) {
                     <Input type="password" placeholder="********" {...field} />
                   </FormControl>
                   <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="acceptTerms"
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div className="space-y-1 leading-none">
+                    <FormLabel>
+                      {t.signupModal.acceptTerms}{' '}
+                      <a href="https://www.alfabcn.ai/es/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        {t.signupModal.privacyPolicy}
+                      </a>{' '}
+                      {t.signupModal.and}{' '}
+                      <a href="https://talent24.ai/terms-of-service.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                        {t.signupModal.termsConditions}
+                      </a>
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
                 </FormItem>
               )}
             />
