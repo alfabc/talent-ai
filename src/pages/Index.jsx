@@ -17,27 +17,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-const Feature = ({ icon, title, description, action }) => (
-  <Card className="w-full">
-    <CardHeader>
-      <CardTitle className="flex items-center gap-2">
-        {icon}
-        <span>{title}</span>
-      </CardTitle>
-    </CardHeader>
-    <CardContent>
-      <CardDescription>
-        {description}
-        {action && (
-          <Button variant="link" className="ml-1 p-0" onClick={action.onClick}>
-            {action.text}
-          </Button>
-        )}
-      </CardDescription>
-    </CardContent>
-  </Card>
-);
-
 const translations = {
   en: {
     login: 'Login',
@@ -206,13 +185,13 @@ const translations = {
         brandedQuizPage: 'Página de cuestionario personalizada para candidatos'
       },
       creditPricing: {
-        title: 'Precios de los créditos',
-        description: 'Cuantos más créditos compres, más barato será el precio por crédito. El número mínimo de créditos que se deben comprar es de 5.000 créditos (equivalente a 200 EUR). Cada cliente nuevo y verificado recibe 200 créditos gratis, la verificación requiere una videollamada con nosotros.',
+        title: 'Precio de credits',
+        description: 'Cuantos más créditos compras, más barato será el precio del crédito. El número mínimo de créditos que hay que comprar es de 5.000 créditos (equivalentes a 200 EUR). Cada cliente nuevo y verificado recibe 200 créditos gratis, la verificación requiere una videollamada con nosotros.',
         table: {
           header: {
-            amount: 'Monto de compra',
-            credits: 'Créditos recibidos',
-            price: 'Precio por crédito'
+            amount: 'Importe',
+            credits: 'Credits recibidos',
+            price: 'Precio de credit'
           },
           rows: [
             {
@@ -318,13 +297,13 @@ const translations = {
         brandedQuizPage: 'Gebrandete Quiz-Seite für Kandidaten'
       },
       creditPricing: {
-        title: 'Preise für Credits',
-        description: 'Je mehr Credits Sie kaufen, desto günstiger wird der Credit-Preis. Die Mindestanzahl an Credits, die gekauft werden muss, beträgt 5.000 Credits (entspricht 200 EUR). Jeder neue und verifizierte Kunde erhält 200 Credits kostenlos, die Verifizierung erfordert einen Videoanruf mit uns.',
+        title: 'Preise der Credits',
+        description: 'Je mehr Credits Sie erwerben, desto günstiger ist der Credit-Preis. Die Mindestanzahl an Credits, die Sie erwerben müssen, beträgt 5.000 Credits (entspricht 200 EUR). Jeder neue und verifizierte Kunde erhält 200 Credits kostenlos, die Verifizierung erfordert einen Videoanruf mit uns.',
         table: {
           header: {
-            amount: 'Kaufbetrag',
+            amount: 'Kaufsumme',
             credits: 'Erhaltene Credits',
-            price: 'Credit-Preis'
+            price: 'Credit Preis'
           },
           rows: [
             {
