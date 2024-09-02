@@ -202,13 +202,13 @@ const translations = {
         brandedQuizPage: 'Página de cuestionario personalizada para candidatos'
       },
       creditPricing: {
-        title: 'Precios de los créditos',
-        description: 'Cuantos más créditos compres, más barato será el precio por crédito. El número mínimo de créditos que se deben comprar es de 5.000 créditos (equivalente a 200 EUR). Cada cliente nuevo y verificado recibe 200 créditos gratis, la verificación requiere una videollamada con nosotros.',
+        title: 'Precio de credits',
+        description: 'Cuantos más créditos compras, más barato será el precio del crédito. El número mínimo de créditos que hay que comprar es de 5.000 créditos (equivalentes a 200 EUR). Cada cliente nuevo y verificado recibe 200 créditos gratis, la verificación requiere una videollamada con nosotros.',
         table: {
           header: {
-            amount: 'Monto de compra',
-            credits: 'Créditos recibidos',
-            price: 'Precio por crédito'
+            amount: 'Importe',
+            credits: 'Credits recibidos',
+            price: 'Precio de credits'
           },
           rows: [
             {
