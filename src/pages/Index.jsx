@@ -16,7 +16,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Feature = ({ icon, title, description, action }) => (
   <Card className="w-full">
@@ -122,10 +121,6 @@ const translations = {
           ]
         }
       }
-    },
-    questions: {
-      title: 'Do you have more questions about Talent AI?',
-      scheduleButton: 'Schedule a meeting with us'
     },
     cta: {
       title: 'Ready to Transform Your Recruiting?',
@@ -235,10 +230,6 @@ const translations = {
         }
       }
     },
-    questions: {
-      title: '¿Tienes más preguntas sobre Talent AI?',
-      scheduleButton: 'Programa una reunión con nosotros'
-    },
     cta: {
       title: '¿Listo para transformar tu reclutamiento?',
       subtitle: 'Únete a miles de reclutadores que han optimizado su proceso de contratación con Talent AI.'
@@ -347,10 +338,6 @@ const translations = {
         }
       }
     },
-    questions: {
-      title: 'Haben Sie weitere Fragen zu Talent AI?',
-      scheduleButton: 'Vereinbaren Sie ein Gespräch mit uns'
-    },
     cta: {
       title: 'Bereit, Ihre Rekrutierung zu transformieren?',
       subtitle: 'Schließen Sie sich Tausenden von Recruitern an, die ihren Einstellungsprozess mit Talent AI optimiert haben.'
@@ -385,7 +372,6 @@ const Index = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isSlideShowModalOpen, setIsSlideShowModalOpen] = useState(false);
   const [isQuizExampleModalOpen, setIsQuizExampleModalOpen] = useState(false);
-  const [isCalendlyModalOpen, setIsCalendlyModalOpen] = useState(false);
   const detectBrowserLanguage = () => {
     const browserLang = navigator.language || navigator.userLanguage;
     if (browserLang.startsWith('de')) return 'de';
@@ -413,8 +399,6 @@ const Index = () => {
   const closeSlideShowModal = () => setIsSlideShowModalOpen(false);
   const openQuizExampleModal = () => setIsQuizExampleModalOpen(true);
   const closeQuizExampleModal = () => setIsQuizExampleModalOpen(false);
-  const openCalendlyModal = () => setIsCalendlyModalOpen(true);
-  const closeCalendlyModal = () => setIsCalendlyModalOpen(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -512,13 +496,6 @@ const Index = () => {
 
         <PricingSection t={t} />
 
-        <section className="text-center mb-16">
-          <h3 className="text-3xl font-semibold mb-4">{t.questions?.title || 'Do you have more questions about Talent AI?'}</h3>
-          <Button size="lg" className="text-lg" onClick={openCalendlyModal}>
-            {t.questions?.scheduleButton || 'Schedule a meeting with us'}
-          </Button>
-        </section>
-
         <section className="text-center">
           <h3 className="text-3xl font-semibold mb-4">{t.cta?.title || 'Ready to Transform Your Recruiting?'}</h3>
           <p className="text-xl text-gray-600 mb-8">{t.cta?.subtitle || 'Join thousands of recruiters who have streamlined their hiring process with Talent AI.'}</p>
@@ -535,16 +512,6 @@ const Index = () => {
       <VideoModal isOpen={isVideoModalOpen} onClose={closeVideoModal} />
       <SlideShowModal isOpen={isSlideShowModalOpen} onClose={closeSlideShowModal} />
       <QuizExampleModal isOpen={isQuizExampleModalOpen} onClose={closeQuizExampleModal} />
-
-      <Dialog open={isCalendlyModalOpen} onOpenChange={closeCalendlyModal}>
-        <DialogContent className="sm:max-w-[800px] p-0">
-          <DialogHeader>
-            <DialogTitle className="p-4">{t.questions?.scheduleButton || 'Schedule a meeting with us'}</DialogTitle>
-          </DialogHeader>
-          <div className="calendly-inline-widget" data-url="https://calendly.com/alfabcn?hide_gdpr_banner=1" style={{minWidth: "320px", height: "700px"}}></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        </DialogContent>
-      </Dialog>
 
       <footer className="bg-gray-100 py-8 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600">
