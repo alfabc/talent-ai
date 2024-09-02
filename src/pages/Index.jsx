@@ -92,6 +92,34 @@ const translations = {
         quizCreation: 'Creation of an individualized candidate quiz with AI',
         quizEvaluation: 'Evaluation of an individualized candidate quiz with AI',
         brandedQuizPage: 'Branded quiz page for candidates'
+      },
+      creditPricing: {
+        title: 'Pricing of credits',
+        description: 'The more credits you purchase, the cheaper the credit-price. The minimum number of credits that needs to be purchased is 5.000 credits (equivalent to 200 EUR). Each new and verified customer gets 200 credits for free, verification requires video call with us.',
+        table: {
+          header: {
+            amount: 'Purchase amount',
+            credits: 'Credits received',
+            price: 'Credit-price'
+          },
+          rows: [
+            {
+              amount: '200 EUR',
+              credits: '5.000 credits',
+              price: '1 credit = 4,0 Cent'
+            },
+            {
+              amount: '1.000 EUR',
+              credits: '50.000 credits',
+              price: '1 credit = 2,0 Cent (50% discount)'
+            },
+            {
+              amount: '5.000 EUR',
+              credits: '500.000 credits',
+              price: '1 credit = 1,0 Cent (75% discount)'
+            }
+          ]
+        }
       }
     },
     cta: {
@@ -172,6 +200,34 @@ const translations = {
         quizCreation: 'Creación de un cuestionario individualizado para candidatos con IA',
         quizEvaluation: 'Evaluación de un cuestionario individualizado para candidatos con IA',
         brandedQuizPage: 'Página de cuestionario personalizada para candidatos'
+      },
+      creditPricing: {
+        title: 'Precios de los créditos',
+        description: 'Cuantos más créditos compres, más barato será el precio por crédito. El número mínimo de créditos que se deben comprar es de 5.000 créditos (equivalente a 200 EUR). Cada cliente nuevo y verificado recibe 200 créditos gratis, la verificación requiere una videollamada con nosotros.',
+        table: {
+          header: {
+            amount: 'Monto de compra',
+            credits: 'Créditos recibidos',
+            price: 'Precio por crédito'
+          },
+          rows: [
+            {
+              amount: '200 EUR',
+              credits: '5.000 créditos',
+              price: '1 crédito = 4,0 céntimos'
+            },
+            {
+              amount: '1.000 EUR',
+              credits: '50.000 créditos',
+              price: '1 crédito = 2,0 céntimos (50% de descuento)'
+            },
+            {
+              amount: '5.000 EUR',
+              credits: '500.000 créditos',
+              price: '1 crédito = 1,0 céntimo (75% de descuento)'
+            }
+          ]
+        }
       }
     },
     cta: {
@@ -252,6 +308,34 @@ const translations = {
         quizCreation: 'Erstellung eines individualisierten Kandidaten-Quiz mit KI',
         quizEvaluation: 'Auswertung eines individualisierten Kandidaten-Quiz mit KI',
         brandedQuizPage: 'Gebrandete Quiz-Seite für Kandidaten'
+      },
+      creditPricing: {
+        title: 'Preise für Credits',
+        description: 'Je mehr Credits Sie kaufen, desto günstiger wird der Credit-Preis. Die Mindestanzahl an Credits, die gekauft werden muss, beträgt 5.000 Credits (entspricht 200 EUR). Jeder neue und verifizierte Kunde erhält 200 Credits kostenlos, die Verifizierung erfordert einen Videoanruf mit uns.',
+        table: {
+          header: {
+            amount: 'Kaufbetrag',
+            credits: 'Erhaltene Credits',
+            price: 'Credit-Preis'
+          },
+          rows: [
+            {
+              amount: '200 EUR',
+              credits: '5.000 Credits',
+              price: '1 Credit = 4,0 Cent'
+            },
+            {
+              amount: '1.000 EUR',
+              credits: '50.000 Credits',
+              price: '1 Credit = 2,0 Cent (50% Rabatt)'
+            },
+            {
+              amount: '5.000 EUR',
+              credits: '500.000 Credits',
+              price: '1 Credit = 1,0 Cent (75% Rabatt)'
+            }
+          ]
+        }
       }
     },
     cta: {
