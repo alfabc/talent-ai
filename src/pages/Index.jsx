@@ -122,6 +122,10 @@ const translations = {
         }
       }
     },
+    questions: {
+      title: 'Do you have more questions about Talent AI?',
+      scheduleButton: 'Schedule a meeting with us'
+    },
     cta: {
       title: 'Ready to Transform Your Recruiting?',
       subtitle: 'Join thousands of recruiters who have streamlined their hiring process with Talent AI.'
@@ -229,6 +233,10 @@ const translations = {
           ]
         }
       }
+    },
+    questions: {
+      title: '¿Tienes más preguntas sobre Talent AI?',
+      scheduleButton: 'Programa una reunión con nosotros'
     },
     cta: {
       title: '¿Listo para transformar tu reclutamiento?',
@@ -338,6 +346,10 @@ const translations = {
         }
       }
     },
+    questions: {
+      title: 'Haben Sie weitere Fragen zu Talent AI?',
+      scheduleButton: 'Vereinbaren Sie ein Gespräch mit uns'
+    },
     cta: {
       title: 'Bereit, Ihre Rekrutierung zu transformieren?',
       subtitle: 'Schließen Sie sich Tausenden von Recruitern an, die ihren Einstellungsprozess mit Talent AI optimiert haben.'
@@ -399,6 +411,17 @@ const Index = () => {
   const closeSlideShowModal = () => setIsSlideShowModalOpen(false);
   const openQuizExampleModal = () => setIsQuizExampleModalOpen(true);
   const closeQuizExampleModal = () => setIsQuizExampleModalOpen(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -495,6 +518,21 @@ const Index = () => {
         </section>
 
         <PricingSection t={t} />
+
+        <section className="text-center mb-16">
+          <h3 className="text-3xl font-semibold mb-4">{t.questions?.title || 'Do you have more questions about Talent AI?'}</h3>
+          <Button
+            size="lg"
+            className="text-lg"
+            onClick={() => {
+              if (window.Calendly) {
+                window.Calendly.initPopupWidget({url: 'https://calendly.com/alfabcn?hide_gdpr_banner=1'});
+              }
+            }}
+          >
+            {t.questions?.scheduleButton || 'Schedule a meeting with us'}
+          </Button>
+        </section>
 
         <section className="text-center">
           <h3 className="text-3xl font-semibold mb-4">{t.cta?.title || 'Ready to Transform Your Recruiting?'}</h3>
