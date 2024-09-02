@@ -44,18 +44,18 @@ export const PricingSection = ({ t }) => (
         </thead>
         <tbody>
           <tr>
-            <td className="border border-gray-300 p-2">200 EUR</td>
-            <td className="border border-gray-300 p-2">5.000 credits</td>
+            <td className="border border-gray-300 p-2 text-right">200 EUR</td>
+            <td className="border border-gray-300 p-2 text-right">5.000 credits</td>
             <td className="border border-gray-300 p-2">1 credit = 4,0 Cent</td>
           </tr>
           <tr>
-            <td className="border border-gray-300 p-2">1.000 EUR</td>
-            <td className="border border-gray-300 p-2">50.000 credits</td>
+            <td className="border border-gray-300 p-2 text-right">1.000 EUR</td>
+            <td className="border border-gray-300 p-2 text-right">50.000 credits</td>
             <td className="border border-gray-300 p-2">1 credit = 2,0 Cent (50% discount)</td>
           </tr>
           <tr>
-            <td className="border border-gray-300 p-2">5.000 EUR</td>
-            <td className="border border-gray-300 p-2">500.000 credits</td>
+            <td className="border border-gray-300 p-2 text-right">5.000 EUR</td>
+            <td className="border border-gray-300 p-2 text-right">500.000 credits</td>
             <td className="border border-gray-300 p-2">1 credit = 1,0 Cent (75% discount)</td>
           </tr>
         </tbody>
