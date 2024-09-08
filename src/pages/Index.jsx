@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from 'lucide-react';
 import { FreeTrialForm } from '@/components/FreeTrialForm';
 import { SignupModal } from '@/components/SignupModal';
 import { LoginModal } from '@/components/LoginModal';
@@ -8,9 +6,7 @@ import { VideoModal } from '@/components/VideoModal';
 import { SlideShowModal } from '@/components/SlideShowModal';
 import { QuizExampleModal } from '@/components/QuizExampleModal';
 import { PricingSection } from '@/components/PricingSection';
-import { Feature } from '@/components/Feature';
 import { VideoSection } from '@/components/VideoSection';
-import { LanguageSelector } from '@/components/LanguageSelector';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { HeroSection } from '@/components/HeroSection';
